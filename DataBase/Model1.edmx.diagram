@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b3529737a3bb4a90b73599611a0d1e27" Name="Diagram1">
+        <EntityTypeShape EntityType="MedDataBaseModel.Buhgalteria" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedDataBaseModel.Catalog" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedDataBaseModel.Inspector" Width="1.5" PointX="3.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedDataBaseModel.Korzina" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedDataBaseModel.Med_ycher" Width="1.5" PointX="3.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedDataBaseModel.Nalogi" Width="1.5" PointX="12.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedDataBaseModel.Otchet" Width="1.5" PointX="10.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedDataBaseModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedDataBaseModel.User_zayavka" Width="1.5" PointX="6" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedDataBaseModel.Users" Width="1.5" PointX="3.75" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedDataBaseModel.Users_info" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="MedDataBaseModel.FK_Buhgalteria_User_zayavka" ManuallyRouted="false" />
+        <AssociationConnector Association="MedDataBaseModel.FK_Otchet_Buhgalteria" ManuallyRouted="false" />
+        <AssociationConnector Association="MedDataBaseModel.FK_Korzina_Catalog" ManuallyRouted="false" />
+        <AssociationConnector Association="MedDataBaseModel.FK_User_zayavka_Catalog" ManuallyRouted="false" />
+        <AssociationConnector Association="MedDataBaseModel.FK_User_zayavka_Inspector" ManuallyRouted="false" />
+        <AssociationConnector Association="MedDataBaseModel.FK_User_zayavka_Med_ycher" ManuallyRouted="false" />
+        <AssociationConnector Association="MedDataBaseModel.FK_Nalogi_Otchet" ManuallyRouted="false" />
+        <AssociationConnector Association="MedDataBaseModel.FK_User_zayavka_Users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище MedDataBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Buhgalteria">
+    <Key>
+      <PropertyRef Name="ID_Buhgalteria" />
+    </Key>
+    <Property Name="ID_Buhgalteria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Zayavka" Type="int" Nullable="false" />
+    <Property Name="Viplata" Type="text" Nullable="false" />
+    <Property Name="Date_viplata" Type="date" />
+    <Property Name="Perecheslenie" Type="money" Nullable="false" />
+    <Property Name="Otchislenie" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Catalog">
+    <Key>
+      <PropertyRef Name="ID_Catolog" />
+    </Key>
+    <Property Name="ID_Catolog" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="text" Nullable="false" />
+    <Property Name="Opisanie" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Inspector">
+    <Key>
+      <PropertyRef Name="ID_Inspecotr" />
+    </Key>
+    <Property Name="ID_Inspecotr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="text" Nullable="false" />
+    <Property Name="Surname" Type="text" Nullable="false" />
+    <Property Name="Otchestvo" Type="text" />
+    <Property Name="DataLiving_street" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DataLiving_home" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Sex" Type="text" Nullable="false" />
+    <Property Name="Phone_number" Type="int" Nullable="false" />
+    <Property Name="Data_birthday" Type="date" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Oklad" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Korzina">
+    <Key>
+      <PropertyRef Name="ID_Korzina" />
+    </Key>
+    <Property Name="ID_Korzina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="text" Nullable="false" />
+    <Property Name="Opisanie" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ID_Catolog" Type="int" Nullable="false" />
+    <Property Name="Sale" Type="int" Nullable="false" />
+    <Property Name="Cost" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Med_ycher">
+    <Key>
+      <PropertyRef Name="ID_Med_ycher" />
+    </Key>
+    <Property Name="ID_Med_ycher" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazvanie" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Street" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Number_house" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="int" Nullable="false" />
+    <Property Name="City" Type="text" Nullable="false" />
+    <Property Name="License" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nalogi">
+    <Key>
+      <PropertyRef Name="ID_Nalogi" />
+    </Key>
+    <Property Name="ID_Nalogi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Street" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Number_house" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_Otchet" Type="int" Nullable="false" />
+    <Property Name="Phone_num" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Otchet">
+    <Key>
+      <PropertyRef Name="ID_Otchet" />
+    </Key>
+    <Property Name="ID_Otchet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date_otchet" Type="date" Nullable="false" />
+    <Property Name="ID_Buhgalteria" Type="int" Nullable="false" />
+    <Property Name="Otchislenie" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="User_zayavka">
+    <Key>
+      <PropertyRef Name="ID_Zayavka" />
+    </Key>
+    <Property Name="ID_Zayavka" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date_zayavka" Type="date" Nullable="false" />
+    <Property Name="ID_User" Type="int" Nullable="false" />
+    <Property Name="ID_Inspector" Type="int" Nullable="false" />
+    <Property Name="Prichina" Type="text" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="ID_Med_ycher" Type="int" Nullable="false" />
+    <Property Name="ID_Catolog" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID_User" />
+    </Key>
+    <Property Name="ID_User" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="text" Nullable="false" />
+    <Property Name="Surname" Type="text" Nullable="false" />
+    <Property Name="Otchestvo" Type="text" />
+    <Property Name="DataLiving_street" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DataLiving_home" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Sex" Type="text" Nullable="false" />
+    <Property Name="Phone_number" Type="int" Nullable="false" />
+    <Property Name="Data_birthday" Type="date" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Polis" Type="int" />
+  </EntityType>
+  <EntityType Name="Users_info">
+    <Key>
+      <PropertyRef Name="ID_Users_info" />
+    </Key>
+    <Property Name="ID_Users_info" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Role" Type="text" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Buhgalteria_User_zayavka">
+    <End Role="User_zayavka" Type="Self.User_zayavka" Multiplicity="1" />
+    <End Role="Buhgalteria" Type="Self.Buhgalteria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_zayavka">
+        <PropertyRef Name="ID_Zayavka" />
+      </Principal>
+      <Dependent Role="Buhgalteria">
+        <PropertyRef Name="ID_Zayavka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Korzina_Catalog">
+    <End Role="Catalog" Type="Self.Catalog" Multiplicity="1" />
+    <End Role="Korzina" Type="Self.Korzina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Catalog">
+        <PropertyRef Name="ID_Catolog" />
+      </Principal>
+      <Dependent Role="Korzina">
+        <PropertyRef Name="ID_Catolog" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nalogi_Otchet">
+    <End Role="Otchet" Type="Self.Otchet" Multiplicity="1" />
+    <End Role="Nalogi" Type="Self.Nalogi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Otchet">
+        <PropertyRef Name="ID_Otchet" />
+      </Principal>
+      <Dependent Role="Nalogi">
+        <PropertyRef Name="ID_Otchet" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Otchet_Buhgalteria">
+    <End Role="Buhgalteria" Type="Self.Buhgalteria" Multiplicity="1" />
+    <End Role="Otchet" Type="Self.Otchet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buhgalteria">
+        <PropertyRef Name="ID_Buhgalteria" />
+      </Principal>
+      <Dependent Role="Otchet">
+        <PropertyRef Name="ID_Buhgalteria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_zayavka_Catalog">
+    <End Role="Catalog" Type="Self.Catalog" Multiplicity="0..1" />
+    <End Role="User_zayavka" Type="Self.User_zayavka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Catalog">
+        <PropertyRef Name="ID_Catolog" />
+      </Principal>
+      <Dependent Role="User_zayavka">
+        <PropertyRef Name="ID_Catolog" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_zayavka_Inspector">
+    <End Role="Inspector" Type="Self.Inspector" Multiplicity="1" />
+    <End Role="User_zayavka" Type="Self.User_zayavka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inspector">
+        <PropertyRef Name="ID_Inspecotr" />
+      </Principal>
+      <Dependent Role="User_zayavka">
+        <PropertyRef Name="ID_Inspector" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_zayavka_Med_ycher">
+    <End Role="Med_ycher" Type="Self.Med_ycher" Multiplicity="1" />
+    <End Role="User_zayavka" Type="Self.User_zayavka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Med_ycher">
+        <PropertyRef Name="ID_Med_ycher" />
+      </Principal>
+      <Dependent Role="User_zayavka">
+        <PropertyRef Name="ID_Med_ycher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_zayavka_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="User_zayavka" Type="Self.User_zayavka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID_User" />
+      </Principal>
+      <Dependent Role="User_zayavka">
+        <PropertyRef Name="ID_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="Хранилище MedDataBaseModelContainer">
+    <EntitySet Name="Buhgalteria" EntityType="Self.Buhgalteria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Catalog" EntityType="Self.Catalog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inspector" EntityType="Self.Inspector" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Korzina" EntityType="Self.Korzina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Med_ycher" EntityType="Self.Med_ycher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nalogi" EntityType="Self.Nalogi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Otchet" EntityType="Self.Otchet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_zayavka" EntityType="Self.User_zayavka" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users_info" EntityType="Self.Users_info" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Buhgalteria_User_zayavka" Association="Self.FK_Buhgalteria_User_zayavka">
+      <End Role="User_zayavka" EntitySet="User_zayavka" />
+      <End Role="Buhgalteria" EntitySet="Buhgalteria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Korzina_Catalog" Association="Self.FK_Korzina_Catalog">
+      <End Role="Catalog" EntitySet="Catalog" />
+      <End Role="Korzina" EntitySet="Korzina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nalogi_Otchet" Association="Self.FK_Nalogi_Otchet">
+      <End Role="Otchet" EntitySet="Otchet" />
+      <End Role="Nalogi" EntitySet="Nalogi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Otchet_Buhgalteria" Association="Self.FK_Otchet_Buhgalteria">
+      <End Role="Buhgalteria" EntitySet="Buhgalteria" />
+      <End Role="Otchet" EntitySet="Otchet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_zayavka_Catalog" Association="Self.FK_User_zayavka_Catalog">
+      <End Role="Catalog" EntitySet="Catalog" />
+      <End Role="User_zayavka" EntitySet="User_zayavka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_zayavka_Inspector" Association="Self.FK_User_zayavka_Inspector">
+      <End Role="Inspector" EntitySet="Inspector" />
+      <End Role="User_zayavka" EntitySet="User_zayavka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_zayavka_Med_ycher" Association="Self.FK_User_zayavka_Med_ycher">
+      <End Role="Med_ycher" EntitySet="Med_ycher" />
+      <End Role="User_zayavka" EntitySet="User_zayavka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_zayavka_Users" Association="Self.FK_User_zayavka_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="User_zayavka" EntitySet="User_zayavka" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

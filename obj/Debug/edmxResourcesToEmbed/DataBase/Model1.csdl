@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MedDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Buhgalteria">
+    <Key>
+      <PropertyRef Name="ID_Buhgalteria" />
+    </Key>
+    <Property Name="ID_Buhgalteria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Zayavka" Type="Int32" Nullable="false" />
+    <Property Name="Viplata" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date_viplata" Type="DateTime" Precision="0" />
+    <Property Name="Perecheslenie" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Otchislenie" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="User_zayavka" Relationship="Self.FK_Buhgalteria_User_zayavka" FromRole="Buhgalteria" ToRole="User_zayavka" />
+    <NavigationProperty Name="Otchet" Relationship="Self.FK_Otchet_Buhgalteria" FromRole="Buhgalteria" ToRole="Otchet" />
+  </EntityType>
+  <EntityType Name="Catalog">
+    <Key>
+      <PropertyRef Name="ID_Catolog" />
+    </Key>
+    <Property Name="ID_Catolog" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Opisanie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Korzina" Relationship="Self.FK_Korzina_Catalog" FromRole="Catalog" ToRole="Korzina" />
+    <NavigationProperty Name="User_zayavka" Relationship="Self.FK_User_zayavka_Catalog" FromRole="Catalog" ToRole="User_zayavka" />
+  </EntityType>
+  <EntityType Name="Inspector">
+    <Key>
+      <PropertyRef Name="ID_Inspecotr" />
+    </Key>
+    <Property Name="ID_Inspecotr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Otchestvo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DataLiving_street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataLiving_home" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sex" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone_number" Type="Int32" Nullable="false" />
+    <Property Name="Data_birthday" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Oklad" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="User_zayavka" Relationship="Self.FK_User_zayavka_Inspector" FromRole="Inspector" ToRole="User_zayavka" />
+  </EntityType>
+  <EntityType Name="Korzina">
+    <Key>
+      <PropertyRef Name="ID_Korzina" />
+    </Key>
+    <Property Name="ID_Korzina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Opisanie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID_Catolog" Type="Int32" Nullable="false" />
+    <Property Name="Sale" Type="Int32" Nullable="false" />
+    <Property Name="Cost" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Catalog" Relationship="Self.FK_Korzina_Catalog" FromRole="Korzina" ToRole="Catalog" />
+  </EntityType>
+  <EntityType Name="Med_ycher">
+    <Key>
+      <PropertyRef Name="ID_Med_ycher" />
+    </Key>
+    <Property Name="ID_Med_ycher" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazvanie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Number_house" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="Int32" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="License" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="User_zayavka" Relationship="Self.FK_User_zayavka_Med_ycher" FromRole="Med_ycher" ToRole="User_zayavka" />
+  </EntityType>
+  <EntityType Name="Nalogi">
+    <Key>
+      <PropertyRef Name="ID_Nalogi" />
+    </Key>
+    <Property Name="ID_Nalogi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Number_house" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID_Otchet" Type="Int32" Nullable="false" />
+    <Property Name="Phone_num" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Otchet" Relationship="Self.FK_Nalogi_Otchet" FromRole="Nalogi" ToRole="Otchet" />
+  </EntityType>
+  <EntityType Name="Otchet">
+    <Key>
+      <PropertyRef Name="ID_Otchet" />
+    </Key>
+    <Property Name="ID_Otchet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date_otchet" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ID_Buhgalteria" Type="Int32" Nullable="false" />
+    <Property Name="Otchislenie" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Buhgalteria" Relationship="Self.FK_Otchet_Buhgalteria" FromRole="Otchet" ToRole="Buhgalteria" />
+    <NavigationProperty Name="Nalogi" Relationship="Self.FK_Nalogi_Otchet" FromRole="Otchet" ToRole="Nalogi" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User_zayavka">
+    <Key>
+      <PropertyRef Name="ID_Zayavka" />
+    </Key>
+    <Property Name="ID_Zayavka" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date_zayavka" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ID_User" Type="Int32" Nullable="false" />
+    <Property Name="ID_Inspector" Type="Int32" Nullable="false" />
+    <Property Name="Prichina" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ID_Med_ycher" Type="Int32" Nullable="false" />
+    <Property Name="ID_Catolog" Type="Int32" />
+    <NavigationProperty Name="Buhgalteria" Relationship="Self.FK_Buhgalteria_User_zayavka" FromRole="User_zayavka" ToRole="Buhgalteria" />
+    <NavigationProperty Name="Catalog" Relationship="Self.FK_User_zayavka_Catalog" FromRole="User_zayavka" ToRole="Catalog" />
+    <NavigationProperty Name="Inspector" Relationship="Self.FK_User_zayavka_Inspector" FromRole="User_zayavka" ToRole="Inspector" />
+    <NavigationProperty Name="Med_ycher" Relationship="Self.FK_User_zayavka_Med_ycher" FromRole="User_zayavka" ToRole="Med_ycher" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_User_zayavka_Users" FromRole="User_zayavka" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID_User" />
+    </Key>
+    <Property Name="ID_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Otchestvo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DataLiving_street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataLiving_home" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sex" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone_number" Type="Int32" Nullable="false" />
+    <Property Name="Data_birthday" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Polis" Type="Int32" />
+    <NavigationProperty Name="User_zayavka" Relationship="Self.FK_User_zayavka_Users" FromRole="Users" ToRole="User_zayavka" />
+  </EntityType>
+  <EntityType Name="Users_info">
+    <Key>
+      <PropertyRef Name="ID_Users_info" />
+    </Key>
+    <Property Name="ID_Users_info" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Buhgalteria_User_zayavka">
+    <End Role="User_zayavka" Type="Self.User_zayavka" Multiplicity="1" />
+    <End Role="Buhgalteria" Type="Self.Buhgalteria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_zayavka">
+        <PropertyRef Name="ID_Zayavka" />
+      </Principal>
+      <Dependent Role="Buhgalteria">
+        <PropertyRef Name="ID_Zayavka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Otchet_Buhgalteria">
+    <End Role="Buhgalteria" Type="Self.Buhgalteria" Multiplicity="1" />
+    <End Role="Otchet" Type="Self.Otchet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buhgalteria">
+        <PropertyRef Name="ID_Buhgalteria" />
+      </Principal>
+      <Dependent Role="Otchet">
+        <PropertyRef Name="ID_Buhgalteria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Korzina_Catalog">
+    <End Role="Catalog" Type="Self.Catalog" Multiplicity="1" />
+    <End Role="Korzina" Type="Self.Korzina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Catalog">
+        <PropertyRef Name="ID_Catolog" />
+      </Principal>
+      <Dependent Role="Korzina">
+        <PropertyRef Name="ID_Catolog" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_zayavka_Catalog">
+    <End Role="Catalog" Type="Self.Catalog" Multiplicity="0..1" />
+    <End Role="User_zayavka" Type="Self.User_zayavka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Catalog">
+        <PropertyRef Name="ID_Catolog" />
+      </Principal>
+      <Dependent Role="User_zayavka">
+        <PropertyRef Name="ID_Catolog" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_zayavka_Inspector">
+    <End Role="Inspector" Type="Self.Inspector" Multiplicity="1" />
+    <End Role="User_zayavka" Type="Self.User_zayavka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inspector">
+        <PropertyRef Name="ID_Inspecotr" />
+      </Principal>
+      <Dependent Role="User_zayavka">
+        <PropertyRef Name="ID_Inspector" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_zayavka_Med_ycher">
+    <End Role="Med_ycher" Type="Self.Med_ycher" Multiplicity="1" />
+    <End Role="User_zayavka" Type="Self.User_zayavka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Med_ycher">
+        <PropertyRef Name="ID_Med_ycher" />
+      </Principal>
+      <Dependent Role="User_zayavka">
+        <PropertyRef Name="ID_Med_ycher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nalogi_Otchet">
+    <End Role="Otchet" Type="Self.Otchet" Multiplicity="1" />
+    <End Role="Nalogi" Type="Self.Nalogi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Otchet">
+        <PropertyRef Name="ID_Otchet" />
+      </Principal>
+      <Dependent Role="Nalogi">
+        <PropertyRef Name="ID_Otchet" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_zayavka_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="User_zayavka" Type="Self.User_zayavka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID_User" />
+      </Principal>
+      <Dependent Role="User_zayavka">
+        <PropertyRef Name="ID_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MedDataBaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Buhgalteria" EntityType="Self.Buhgalteria" />
+    <EntitySet Name="Catalog" EntityType="Self.Catalog" />
+    <EntitySet Name="Inspector" EntityType="Self.Inspector" />
+    <EntitySet Name="Korzina" EntityType="Self.Korzina" />
+    <EntitySet Name="Med_ycher" EntityType="Self.Med_ycher" />
+    <EntitySet Name="Nalogi" EntityType="Self.Nalogi" />
+    <EntitySet Name="Otchet" EntityType="Self.Otchet" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="User_zayavka" EntityType="Self.User_zayavka" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <EntitySet Name="Users_info" EntityType="Self.Users_info" />
+    <AssociationSet Name="FK_Buhgalteria_User_zayavka" Association="Self.FK_Buhgalteria_User_zayavka">
+      <End Role="User_zayavka" EntitySet="User_zayavka" />
+      <End Role="Buhgalteria" EntitySet="Buhgalteria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Otchet_Buhgalteria" Association="Self.FK_Otchet_Buhgalteria">
+      <End Role="Buhgalteria" EntitySet="Buhgalteria" />
+      <End Role="Otchet" EntitySet="Otchet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Korzina_Catalog" Association="Self.FK_Korzina_Catalog">
+      <End Role="Catalog" EntitySet="Catalog" />
+      <End Role="Korzina" EntitySet="Korzina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_zayavka_Catalog" Association="Self.FK_User_zayavka_Catalog">
+      <End Role="Catalog" EntitySet="Catalog" />
+      <End Role="User_zayavka" EntitySet="User_zayavka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_zayavka_Inspector" Association="Self.FK_User_zayavka_Inspector">
+      <End Role="Inspector" EntitySet="Inspector" />
+      <End Role="User_zayavka" EntitySet="User_zayavka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_zayavka_Med_ycher" Association="Self.FK_User_zayavka_Med_ycher">
+      <End Role="Med_ycher" EntitySet="Med_ycher" />
+      <End Role="User_zayavka" EntitySet="User_zayavka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nalogi_Otchet" Association="Self.FK_Nalogi_Otchet">
+      <End Role="Otchet" EntitySet="Otchet" />
+      <End Role="Nalogi" EntitySet="Nalogi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_zayavka_Users" Association="Self.FK_User_zayavka_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="User_zayavka" EntitySet="User_zayavka" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(MedDataBaseModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(MedDataBaseModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>
