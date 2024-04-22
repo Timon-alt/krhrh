@@ -30,3 +30,5 @@ C:\aboba\April\17\WpfApp2\obj\Debug\Views\Windows\WindowGuest.g.cs
 C:\aboba\April\17\WpfApp2\obj\Debug\Views\Windows\WindowGuest.baml
 C:\aboba\April\17\WpfApp2\obj\Debug\Views\Windows\WindowKorzina.g.cs
 C:\aboba\April\17\WpfApp2\obj\Debug\Views\Windows\WindowKorzina.baml
+C:\aboba\April\17\WpfApp2\obj\Debug\Views\Windows\WindowReg.g.cs
+C:\aboba\April\17\WpfApp2\obj\Debug\Views\Windows\WindowReg.baml

@@ -17,7 +17,8 @@
         <TextBox HorizontalAlignment="Center" Margin="0,239,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Height="30" FontFamily="Impact" FontSize="20" Name="PasswordBox"/>
         <Label Content="Пароль" HorizontalAlignment="Left"  VerticalAlignment="Top" FontSize="20" FontFamily="Impact" Foreground="#FFFFFEFE" Margin="65,205,0,0"/>
         <Button Content="Войти" HorizontalAlignment="Center" Margin="0,306,0,0" VerticalAlignment="Top" Height="30" Width="100" Click="btn_click1"/>
-        <Button Content="Гость" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Top" Height="30" Width="100" Click="btn_guest"/>
+        <Button Content="Гость" HorizontalAlignment="Center" Margin="262,379,10,0" VerticalAlignment="Top" Height="30" Width="70" Click="btn_guest"/>
+        <Button Content="Регистрация" HorizontalAlignment="Left" Margin="121,351,0,0" VerticalAlignment="Top" Height="30" Width="100" Click="btn_reg"/>
 
     </Grid>
 </Window>

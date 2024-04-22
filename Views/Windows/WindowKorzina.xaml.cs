@@ -31,6 +31,8 @@ namespace WpfApp2.Views.Windows
             int value = rnd.Next(100, 999);
             Code.Content = value;
             LoadPrice();
+            var currentKozina = MedDataBaseEntities1.GetContext().Korzina.ToList();
+            ListCatal.ItemsSource = currentKozina;
         }
 
         void LoadPrice()

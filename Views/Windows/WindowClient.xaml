@@ -11,10 +11,10 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <Image Source="{Binding Path=Image}" Width="200" Height="200" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                        <TextBlock Text="{Binding Name,StringFormat={} Название:{0}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="250, 0, 0, 250"/>
-                        <TextBlock Text="{Binding Opisanie,StringFormat={} Описание:{0}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="250, 0, 0, 200"/>
-                        <Button Content="Button" HorizontalAlignment="Left" Margin="250,100,0,0" VerticalAlignment="Top" Width="92" Height="67" />
+                        <Image Name ="ImageCatal" Source="{Binding Path=Image}" Width="200" Height="200" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <TextBlock Name="TovarTxtBlock" Text="{Binding Name,StringFormat={} Название:{0}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="250, 0, 0, 250"/>
+                        <TextBlock Name ="OpisanieTxtBlock" Text="{Binding Opisanie,StringFormat={} Описание:{0}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="250, 0, 0, 200"/>
+                        <Button Content="Button" HorizontalAlignment="Left" Margin="250,100,0,0" VerticalAlignment="Top" Width="92" Height="67" Click="btn_click_add_korzina"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -24,6 +24,6 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="340,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
         <Label Content="Поиск" HorizontalAlignment="Left" Margin="271,26,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Button Click ="btn_exit" Content="Выйти" HorizontalAlignment="Left" Margin="676,26,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
-        <Button Content="Корзина" HorizontalAlignment="Left" Margin="558,19,0,0" VerticalAlignment="Top" Width="75" Height="50"/>
+        <Button Content="Корзина" HorizontalAlignment="Left" Margin="558,19,0,0" VerticalAlignment="Top" Width="75" Height="50" Click="btn_korzina"/>
     </Grid>
 </Window>

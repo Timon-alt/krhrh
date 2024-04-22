@@ -72,5 +72,11 @@ namespace WpfApp2.Views.Windows
             this.Close();
             MessageBox.Show("Вы вошли как гость");
         }
+
+        private void btn_reg(object sender, RoutedEventArgs e)
+        {
+            WindowReg windowReg = new WindowReg();
+            windowReg.Show();
+        }
     }
 }

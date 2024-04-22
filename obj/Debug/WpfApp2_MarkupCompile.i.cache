@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\aboba\April\17\WpfApp2\App.xaml
-71738697400
+8497643334
 2-290982251
-281910888693
+29-1175264637
 19-999637420
-MainWindow.xaml;Views\Windows\WindowAdmin.xaml;Views\Windows\WindowAuth.xaml;Views\Windows\WindowClient.xaml;Views\Windows\WindowGuest.xaml;Views\Windows\WindowKorzina.xaml;Views\Windows\WindowManager.xaml;
+MainWindow.xaml;Views\Windows\WindowAdmin.xaml;Views\Windows\WindowAuth.xaml;Views\Windows\WindowClient.xaml;Views\Windows\WindowGuest.xaml;Views\Windows\WindowKorzina.xaml;Views\Windows\WindowManager.xaml;Views\Windows\WindowReg.xaml;
 
-False
+True
 

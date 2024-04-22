@@ -34,5 +34,25 @@ namespace WpfApp2.Views.Windows
             windowAuth.Show();
             this.Close();
         }
+
+        private void btn_click_add_korzina(object sender, RoutedEventArgs e)
+        {
+            var rowItem = (sender as Button).DataContext as Catalog;
+            int id = rowItem.ID_Catolog;
+            using (MedDataBaseEntities1 db = new MedDataBaseEntities1())
+            {
+                var catalog = db.Catalog.First(x => x.ID_Catolog == id);
+                db.Korzina.Add(new Korzina() { Name = catalog.Name, Opisanie = catalog.Opisanie, Image = catalog.Image, ID_Catolog = catalog.ID_Catolog });
+                db.SaveChanges();
+
+                MessageBox.Show($"{catalog.Name} Добавлено в корзину!");
+            }
+        }
+
+        private void btn_korzina(object sender, RoutedEventArgs e)
+        {
+            WindowKorzina windowKorzina = new WindowKorzina();
+            windowKorzina.Show();
+        }
     }
 }
